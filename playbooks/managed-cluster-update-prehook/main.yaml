@@ -1,0 +1,7 @@
+---
+- name: Handle ACM Managed Cluster Update pre-hook
+  hosts: all
+  tasks:
+  - name: Debug
+    ansible.builtin.debug:
+      msg: "Inside the playbook!"
