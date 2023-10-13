@@ -1,10 +1,16 @@
 ---
 - name: Handle ACM Managed Cluster Update pre-hook
-  hosts: localhost
+  hosts: "{{cluster_info['clusterName']}}"
+  vars:
+    ansible_connection: local
+    
   tasks:
     - name: Debug
       ansible.builtin.debug:
         msg: "{{vars}}"
+    - name: Debug 2
+      ansible.builtin.debug:
+        msg: "Test Var: {{ test_var }}"
     - name: Cluster Info
       ansible.builtin.debug:
         msg:
@@ -13,3 +19,4 @@
     - name: Fail to prevent further execution
       ansible.builtin.fail:
         msg: "Failing the playbook to prevent further execution"
+      when: true
