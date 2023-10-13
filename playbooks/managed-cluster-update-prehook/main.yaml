@@ -7,9 +7,9 @@
         msg: "{{vars}}"
     - name: Cluster Info
       ansible.builtin.debug:
-        msg: |
-          Cluster Name: {{ cluster_info["clusterName"] }}
-          Cluster API Server: {{ cluster_info["apiServer"] }}
+        msg:
+          - "Cluster Name: {{ cluster_info['clusterName'] }}"
+          - "Cluster API Server: {{ cluster_info['apiServer'] }}"
     - name: Fail to prevent further execution
       ansible.builtin.fail:
         msg: "Failing the playbook to prevent further execution"
